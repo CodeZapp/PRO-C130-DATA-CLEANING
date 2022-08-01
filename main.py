@@ -1,0 +1,16 @@
+import pandas as pd
+import csv
+df = pd.read_csv('totalStars.csv')
+print(df)
+print(df.columns)
+df.drop(['Unnamed: 0', 'Unnamed: 6', 'Star_name.1', 'Distance.1', 'Mass.1', 'Radius.1'], axis = 1, inplace = True)
+print(df)
+finalData = df.dropna()
+print(finalData)
+finalData.reset_index(drop = True, inplace = True)
+print(finalData)
+finalData.to_csv('finalData.csv')
+print(finalData.info())
+print(finalData.describe())
+print(finalData.head(5))
+print(finalData.dtypes)
